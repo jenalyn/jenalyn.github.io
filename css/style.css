@@ -1,0 +1,144 @@
+
+.center {
+	text-align: center;
+}
+
+.imgMe {
+	width: 200px;
+	height: 200px;
+}
+
+.marginTop {
+	margin-top: 70px;
+}
+
+#homeContainer {
+	background-image: url('../images/bg.jpg');
+	width: 100%;
+	height: 600px;
+	background-size: cover;
+	color: #1C1C1C;
+	font-family: 'Jockey One', sans-serif;
+}
+
+#topText {
+	text-align: center;
+	margin-top: 150px;
+	
+}
+
+#topText h1 {
+	font-size: 4em;
+}
+
+#topText p {
+	font-size: 2em;
+}
+
+.marginBottom {
+	margin-bottom: 100px;
+}
+
+#projectContainer {
+	background-color: #F4F4F9;
+	width: 100%;
+}
+
+footer {
+	background-color: #2F4550;
+	width: 100%;
+	color: #B8DBD9;
+	text-align: center;
+}
+
+.transparent {
+	background-color: rgba(184,219,217,0.4);
+	width: 100%;
+	height: 600px;
+	background-size: cover;
+	left: 0;
+	top: 0;
+	position: absolute;
+	z-index: 0;
+	display: block;
+}
+
+.navbarCenter .navbar-nav {
+	text-align: center;
+	float: none;
+}
+
+.navbarCenter .navbar-nav li {
+	float: none;
+	display: inline;
+
+}
+
+.navbarCenter .navbar-nav li a {
+	display: inline-block;
+	color: #B8DBD9;
+	font-family: 'Cuprum', sans-serif;
+	font-size: 1.5em;
+}
+
+#navbarCustomize {
+	background-color: #2F4550;
+
+}
+
+.img-thumbnail {
+	background-color: #586F7C;
+	border: 1px solid #586F7C;
+}
+
+#aboutmeContainer {
+	background-color: #F4F4F9;
+	width: 100%;
+}
+
+#aboutmeContainer h4 {
+	font-family: 'Jockey One', sans-serif;
+	font-size: 3em;
+}
+
+#projectsContainer {
+	background-color: #B8DBD9;
+	width: 100%;
+}
+
+#projectsContainer h3 {
+	font-family: 'Jockey One', sans-serif;
+	font-size: 3em;
+}
+
+#projectsContainer h4 {
+	font-family: 'Jockey One', sans-serif;
+}
+
+#contactContainer {
+	background-color: #586F7C;
+	width: 100%;
+}
+
+.projPreview {
+	width: 200px;
+	height: 200px;
+}
+
+.navbar-inverse .navbar-nav .active a {
+	color: #1C1C1C;
+	background-color: #586F7C;
+}
+
+.infoCustomize {
+	margin-top: 30px;
+}
+
+.infoCustomize .btn {
+	font-family: 'Jockey One', sans-serif;
+}
+
+#contactContainer h3 {
+	font-family: 'Cuprum', sans-serif;
+	font-size: 3em;
+}
