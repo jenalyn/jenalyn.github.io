@@ -23,7 +23,7 @@
 
 #topText {
 	text-align: center;
-	margin-top: 150px;
+	margin-top: 130px;
 	
 }
 
@@ -33,6 +33,10 @@
 
 #topText p {
 	font-size: 2em;
+}
+
+blockquote {
+	border-left: none;
 }
 
 .marginBottom {
@@ -99,6 +103,11 @@ footer {
 #aboutmeContainer h4 {
 	font-family: 'Jockey One', sans-serif;
 	font-size: 3em;
+	padding-bottom: 20px;
+}
+
+#aboutmeContainer p, ul {
+	font-size: 18px;
 }
 
 #projectsContainer {
@@ -120,22 +129,28 @@ footer {
 	width: 100%;
 }
 
-.projPreview {
-	width: 200px;
-	height: 200px;
-}
-
 .navbar-inverse .navbar-nav .active a {
 	color: #1C1C1C;
 	background-color: #586F7C;
 }
 
 .infoCustomize {
-	margin-top: 30px;
+	margin-top: 35px;
 }
 
-.infoCustomize .btn {
-	font-family: 'Jockey One', sans-serif;
+.infoCustomize h4 {
+	margin-top: 5px;
+}
+
+.infoCustomize .col-md-4 {
+	margin-top: 20px;
+}
+
+.infoCustomize a {
+	margin-top: 5px;
+	padding-left: 25px;
+	padding-right: 25px;
+	font-size: 16px;
 }
 
 #contactContainer h3 {

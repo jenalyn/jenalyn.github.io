@@ -1,3 +1,43 @@
+<?php
+
+  if (isset($_POST["submit"])) {
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $subject = $_POST['subject'];
+    $message = $_POST['message'];
+
+    $from = 'Demo Contact Form'; 
+    $to = 'jenalyn.sindo@gmail.com'; 
+    $subject = 'Message from Contact Demo ';
+    $body = "From: $name\n E-Mail: $email\n Message:\n $message";
+
+    if (!$_POST['name']) {
+      $errName = 'Please enter your name';
+    }
+
+    if (!$_POST['email'] || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+      $errEmail = 'Please enter a valid email address';
+    }
+
+    if (!$_POST['subject']) {
+      $errSubject = 'Please enter your subject';
+    }
+
+    if (!$_POST['message']) {
+      $errMessage = 'Please enter your message';
+    }
+
+    if(!$errName && !$errEmail && !$errSubject && !$errMessage) {
+      if (mail($to, $subject, $body, $from)) {
+         $result='<div class="alert alert-success">Thank you for the message! </div>';
+      } else {
+          $result='<div class="alert alert-danger">Sorry there was an error sending your message. Please try again later</div>';
+      }
+    }
+  }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -33,6 +73,7 @@
             <li class="active"><a href="#homeContainer">Home</a></li>
             <li><a href="#aboutmeContainer">About</a></li>
             <li><a href="#projectsContainer">Projects</a></li>
+            <li><a href="#contactContainer">Contact</a></li>
           </ul>
         </div>  
       </div>
@@ -163,6 +204,62 @@
 
     </div>
   </div><!--end of projects-->
+
+  
+
+  <div class="container contentsContainer" id="contactContainer">
+    <div class="marginTop center">
+      <h3>CONTACT ME</h3>
+
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          
+          <form class="form-horizontal">
+            <div class="form-group">
+              <label class="col-md-3" for="name">Name</label>
+              <div class="col-md-9">
+                <input type="text" class="form-control" placeholder="Your Name" name="name" id="name" value="<?php echo htmlspecialchars($_POST['name']); ?>">
+                <?php echo "<p class='text-danger'>$errName</p>";?>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-3" for="email">E-mail Address</label>
+              <div class="col-md-9">
+                <input type="email" class="form-control" placeholder="Your Email" name="email" id="email" value="<?php echo htmlspecialchars($_POST['email']); ?>">
+                <?php echo "<p class='text-danger'>$errEmail</p>";?>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-3" for="subject">Subject</label>
+              <div class="col-md-9">
+                <input type="text" class="form-control" name="subject" id="subject" value="<?php echo htmlspecialchars($_POST['subject']); ?>">
+                <?php echo "<p class='text-danger'>$errSubject</p>";?>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-3" for="message">Message</label>
+              <div class="col-md-9">
+                <textarea class="form-control" rows="3" name="message" id="message"><?php echo htmlspecialchars($_POST['message']); ?></textarea>
+                <?php echo "<p class='text-danger'>$errMessage</p>";?>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-md-6 col-md-offset-3">
+                <input type="submit" class="btn btn-info" name="submit" value="Submit">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-md-6 col-md-offset-3">
+                <?php echo $result; ?>
+              </div>
+            </div>
+
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div><!--end of contact-->
 
   <footer>
     <div class="container">

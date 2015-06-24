@@ -1,3 +1,44 @@
+<?php
+
+  if ($_POST["submit"]) {
+
+    if (!$_POST['name']) {
+      $error="<br>Please enter your name";
+    }
+    if (!$_POST['email']) {
+      $error.="<br>Please enter your e-mail address";
+    }
+    if (!$_POST['subject']) {
+      $error.="<br>Please enter your subject";
+    }
+    if (!$_POST['message']) {
+      $error.="<br>Please enter your message";
+    }
+
+    if ($_POST['email'] !=="" AND !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) { 
+      $error.="<br>Please enter a valid email address"; 
+    }
+
+    if($error) {
+      $result='<div class="alert alert-danger"><strong>Please fill up the following:</strong>'.$error.'</div>';
+    } else {
+
+      if (mail("jenalyn.sindo@gmail.com", "Message from website", "Name: ".$_POST['name']
+        ."Email: ".$_POST['email']
+        ."Subject: ".$_POST['subject']
+        ."Message: ".$_POST['message'])
+        ){
+          $result='<div class="alert alert-success"><strong>Thank you for the message!</strong></div>';
+      } else {
+        $result='<div class="alert alert-danger">Sorry there was an error sending your message. Please try again.</div>';
+      }
+    }
+  }
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -33,6 +74,7 @@
             <li class="active"><a href="#homeContainer">Home</a></li>
             <li><a href="#aboutmeContainer">About</a></li>
             <li><a href="#projectsContainer">Projects</a></li>
+            <li><a href="#contactContainer">Contact</a></li>
           </ul>
         </div>  
       </div>
@@ -163,6 +205,52 @@
 
     </div>
   </div><!--end of projects-->
+
+  <div class="container contentsContainer" id="contactContainer">
+    <div class="marginTop center">
+      <h3>CONTACT ME</h3>
+
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+
+
+          <?php echo $result; ?>
+          
+          <form class="form-horizontal">
+            <div class="form-group">
+              <label class="col-md-3" for="name">Name</label>
+              <div class="col-md-9">
+                <input type="text" class="form-control" placeholder="Your Name" name="name" id="name" value="<?php echo $_POST['name']; ?>">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-3" for="email">E-mail Address</label>
+              <div class="col-md-9">
+                <input type="email" class="form-control" placeholder="Your Email" name="email" id="email" value="<?php echo $_POST['email']; ?>">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-3" for="subject">Subject</label>
+              <div class="col-md-9">
+                <input type="text" class="form-control" name="subject" id="subject" value="<?php echo $_POST['subject']; ?>">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-3" for="message">Message</label>
+              <div class="col-md-9">
+                <textarea class="form-control" rows="3" name="message" id="message"><?php echo $_POST['message']; ?></textarea>
+              </div>
+            </div>
+            <input type="submit" class="btn btn-info" name="submit" value="Submit">
+
+
+
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div><!--end of contact-->
 
   <footer>
     <div class="container">
